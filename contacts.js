@@ -21,6 +21,7 @@ const addContact = async (name, email, phone) => {
     email,
     phone,
   };
+  console.log(newContact);
   const contacts = await listContacts();
   contacts.push(newContact);
   await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
