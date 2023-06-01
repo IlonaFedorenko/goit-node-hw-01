@@ -21,8 +21,17 @@ const addContact = async (name, email, phone) => {
     email,
     phone,
   };
-  console.log(newContact);
   const contacts = await listContacts();
+  const contactExists = contacts.some(
+    (contact) =>
+      contact.name === newContact.name &&
+      contact.email === newContact.email &&
+      contact.phone === newContact.phone
+  );
+  if (contactExists) {
+    console.log("Contact already exists. Skipping push.");
+    return null;
+  }
   contacts.push(newContact);
   await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
   return newContact;
