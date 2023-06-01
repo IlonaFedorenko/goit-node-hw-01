@@ -2,7 +2,6 @@ const fs = require("fs").promises;
 const path = require("path");
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
-// const contactsPath = path.join("db", "contacts.json");
 
 const {
   listContacts,
@@ -41,16 +40,3 @@ async function invokeAction({ action, id, name, email, phone }) {
 const arr = hideBin(process.argv);
 const { argv } = yargs(arr);
 invokeAction(argv);
-
-// invokeAction({ action: "list" });
-// invokeAction({ action: "get", id: "drsAJ4SHPYqZeG-83QTVW" });
-// invokeAction({
-//   action: "add",
-//   name: "Mango",
-//   email: "mango@gmail.com",
-//   phone: "322-22-22",
-// });
-// invokeAction({
-//   action: "remove",
-//   id: "I-mjZGrh6o6Z4XFYmnOej",
-// });
